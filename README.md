@@ -7,8 +7,7 @@
 #### Steps:
 
 1. **Clone the repository:**
-git clone https://github.com/<your_username>/end-to-end-medical-chatbot-using-llama2.git
-cd end-to-end-medical-chatbot-using-llama2
+git clone https://github.com/mahendra867/End-to-End-Gen-AI-LLM-medical-Chart-bot-Application-with-Custom-pdf-data-.git
 
 
 2. **Create a Conda environment:**
