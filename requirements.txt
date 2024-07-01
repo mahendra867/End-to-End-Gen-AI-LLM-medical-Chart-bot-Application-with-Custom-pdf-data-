@@ -1,7 +1,7 @@
 ctransformers==0.2.5  # we use specific versions of libraries when we old versions of libraries as time get passes some functionalities of the libraires get vanish so this reason to use the specific latest stable version we need to select , and since the llm model we are going to use the llama llm model which is quantize model which means this llm model run on cpu so  in order to load this llm model we need to use this ctransformers library
 sentence-transformers==2.2.2 # this sentence-transformer library helps us to download the pre trained vector embedding model from huggingface
 pinecone-client # its a cloud based database  to save the vector embeddings
-langchain # its a framework of GENAI
+langchain==0.2.5 # its a framework of GENAI
 flask
 pypdf # its used to load the pdf files
 python-dotenv  # its helps us to save the secrete files in .env and load those secrete file without making those available to public
