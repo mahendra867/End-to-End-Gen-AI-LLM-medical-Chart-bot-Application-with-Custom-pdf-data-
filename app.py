@@ -3,11 +3,19 @@ from src.helper import download_hugging_face_embeddings
 from langchain.vectorstores import Pinecone as PineconeStore
 from langchain import PromptTemplate
 from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from langchain.llms import CTransformers
+from langchain_groq import ChatGroq
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
 from src.prompt import *
 import os
+from langchain_community.llms import HuggingFaceEndpoint
+from langchain_community.chat_models.huggingface import ChatHuggingFace
+
+from huggingface_hub import login
+
+
 
 app = Flask(__name__)
 
@@ -33,10 +41,16 @@ PROMPT = PromptTemplate(template=prompt_template, input_variables=["context","qu
 # Define chain_type_kwargs using the created PROMPT
 chain_type_kwargs = {"prompt": PROMPT}
 
-llm=CTransformers(model="model/llama-2-7b-chat.ggmlv3.q2_K.bin", # with the help of CTransformers we can able to load the  llama llm model by giving some customize paramerters for the llm model
-                  model_type="llama",
-                  config={'max_new_tokens':512,
-                          'temperature':0.8})
+#llm=CTransformers(model="meta-llama/Llama-3.2-1B", # with the help of CTransformers we can able to load the  llama llm model by giving some customize paramerters for the llm model
+#                  model_type="llama",
+#                  config={'max_new_tokens':512,
+#                          'temperature':0.8})
+
+
+
+
+groq_api_key=os.getenv('GROQ_API_KEY')
+llm=ChatGroq(groq_api_key=groq_api_key,model_name="llama3-8b-8192")
 
 # here i have created the object for the RetrievalQA.from_chain_type and given object name as qa
 qa=RetrievalQA.from_chain_type(

@@ -1,8 +1,14 @@
-ctransformers==0.2.5  # we use specific versions of libraries when we old versions of libraries as time get passes some functionalities of the libraires get vanish so this reason to use the specific latest stable version we need to select , and since the llm model we are going to use the llama llm model which is quantize model which means this llm model run on cpu so  in order to load this llm model we need to use this ctransformers library
-sentence-transformers==2.2.2 # this sentence-transformer library helps us to download the pre trained vector embedding model from huggingface
-pinecone-client # its a cloud based database  to save the vector embeddings
-langchain==0.2.5 # its a framework of GENAI
-flask
-pypdf # its used to load the pdf files
-python-dotenv  # its helps us to save the secrete files in .env and load those secrete file without making those available to public
--e . # this every library get install in the current selected medical_chatbot python virtual environment 
+ctransformers==0.2.5  # For loading quantized LLaMA models to run on CPU.
+sentence-transformers>=2.6.0  # Updated version to avoid conflicts with langchain-huggingface.
+pinecone-client>=2.2.1  # Cloud-based database to store vector embeddings.
+langchain>=0.2.2  # Framework for Generative AI.
+flask>=2.2.0  # For creating the web application.
+pypdf>=3.0.0  # For loading and processing PDF files.
+python-dotenv>=0.21.0  # For managing secret files like API keys.
+langchain-community>=0.1.0  # Community extensions for LangChain.
+langchain-huggingface>=0.1.0  # Hugging Face integration for LangChain.
+huggingface-hub>=0.15.1  # API for Hugging Face Hub interaction.
+pydantic>=2.0.0  # For data validation and modeling.
+gunicorn>=20.1.0  # WSGI server for deploying Flask applications.
+
+-e .  # Ensures all libraries are installed in the current virtual environment.

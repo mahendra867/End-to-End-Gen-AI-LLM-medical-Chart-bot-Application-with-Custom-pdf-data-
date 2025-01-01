@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup
+from setuptools import find_packages, setup  # setuptools: A library that provides tools for packaging Python projects. It includes
 
 setup(
     name = 'Medical Chatbot',
